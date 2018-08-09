@@ -23,6 +23,7 @@ Now there is 2 commands
 !help
 
 TO DO: 
-1. add more simple command
+1. add more simple commands
 2. refract help command
 3. add testing?
+4. add commands that require twitch callbacks
