@@ -7,6 +7,7 @@
 # You can fill in creds here or use environment variables if you choose.
 TWITCH_CHAT_TOKEN = ENV['TWITCH']
 TWITCH_USER       = ENV['TWITCH_USER']
+CHANNEL_NAME      = "scum7ck"
 
 require 'socket'
 require 'logger'
@@ -50,7 +51,14 @@ class Twitch
           if message =~ /^!hello/
             user = match[1]
             logger.info "USER COMMAND: #{user} - !hello"
-            send "PRIVMSG #scum7ck :Hello, #{user} from bot of my channel!"
+            send "PRIVMSG ##{CHANNEL_NAME} :Hello, #{user} from bot of my channel!"
+          end
+
+          if message =~ /^!help/
+            user = match[1]
+            logger.info "USER COMMAND: #{user} - !help"
+            # To do make hello and help as a array of all methods
+            send "PRIVMSG ##{CHANNEL_NAME} :@#{user} list of commands: !hello, !help"
           end
 
           logger.info "> #{line}"
